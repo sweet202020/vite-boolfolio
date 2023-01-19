@@ -1,31 +1,51 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
     components: {
         HelloWorld,
+
+    }, data() {
+        return {
+            projects: null,
+            base_api_url: 'http://127.0.0.1:8000',
+            error: null,
+            loading: true
+        }
+
+
+    }, methods: {
+        getProjects(url) {
+            /* faccio la chiamata ajax */
+            axios
+                .get(url)
+                .then(response => {
+                    console.log(response);
+                    this.projects = response.data.results
+
+                })
+                .catch(err => {
+                    console.error(err.message)
+                    this.error = err.message
+
+                })
+        }
+    }, mounted() {
+        this.getProjects(this.base_api_url + '/api/projects')
     }
 }
 </script>
 
 <template>
-    <section class="vue-home">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center vh-100">
-                    <div class="logos">
-                        <a href="https://vitejs.dev" target="_blank">
-                            <img src="/vite.svg" class="logo" alt="Vite logo" />
-                        </a>
-                        <a href="https://vuejs.org/" target="_blank">
-                            <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-                        </a>
-                    </div>
-                    <HelloWorld />
-                </div>
-            </div>
-        </div>
-    </section>
+    <header id="site_header"></header>
+    <!-- /#site_header -->
+    <main id="site_main"></main>
+    <!-- /#site_main -->
+    <footer id="site_footer">
+
+    </footer>
+    <!-- /#site_footer -->
 </template>
 
 <style lang="scss">
