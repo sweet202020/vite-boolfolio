@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from vue - router
 import HomeView from './views/HomeView'
 import ProjectView from '.views/ProjectView'
 import ContactsView from '.views/ContactView'
+import SingleProjectView from '.views/SingleProjectView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,6 +21,12 @@ const router = createRouter({
             path: '/contacts',
             name: 'contacts',
             component: ContactsView
+        },
+
+        {
+            path: '/project/:slug',
+            name: 'single-project',
+            component: SingleProjectView
         },
     ]
 });
