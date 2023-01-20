@@ -4,6 +4,8 @@ export default {
 }
 </script>
 <template>
+
+
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" id="navId" role="tablist">
         <li class="nav-item">
@@ -35,6 +37,7 @@ export default {
         <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
         <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
     </div>
+
 
 
 </template>
