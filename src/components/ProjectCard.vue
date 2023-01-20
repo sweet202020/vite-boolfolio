@@ -18,6 +18,7 @@ export default {
             axios
                 .get(url)
                 .then(response => {
+                    console.log(response.data);
                     console.log(response.data.results.data);
                     this.projects = response.data.results.data;
                     this.loading = false
@@ -58,7 +59,7 @@ export default {
 <template>
     <section class="vue-home pt-5">
         <div class="container">
-            <template v-if="projects">
+            <template v-if="projects && !loading">
                 <div class="row row-cols-1 row-cols-sm-3 g-4">
                     <div class="col" v-for="project in projects">
                         <div class="card border-0 shadow-sm rounded-0 rounded-bottom">
@@ -68,9 +69,10 @@ export default {
                                 <p>
                                     {{ trimBody(project.description) }}
                                 </p>
-                                <a href="#">Read more</a>
+                                <router-link :to="{ name: 'single-project', params: { slug: project.slug } }">Read
+                                    More</router-link>
                             </div>
-                            <div class="card-footer text-muted">
+                            <div div class=" card-footer text-muted">
                                 <div class="type">
                                     <strong>type: </strong>
                                     <span v-if="project.type">
@@ -80,7 +82,7 @@ export default {
                                 </div>
                                 <div class="technologies">
                                     <strong>technologies: </strong>
-                                    <template v-if="project.technologies.lenght > 0">
+                                    <template v-if="project.technologies.length > 0">
                                         <span v-for="project in project.technologies">
                                             #{{ project.name }}
                                         </span>
@@ -115,9 +117,12 @@ export default {
                 </nav>
 
             </template>
-            <div v-else>
-                <p> No projects here </p>
-            </div>
+            <template v-else-if="loading">
+                loading.....
+            </template>
+            <template v-else>
+                no projects heres
+            </template>
         </div>
     </section>
 
