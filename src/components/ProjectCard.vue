@@ -20,7 +20,7 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     console.log(response.data.results.data);
-                    this.projects = response.data.results.data;
+                    this.projects = response.data.results;
                     this.loading = false
                 })
                 .catch(error => {
@@ -61,7 +61,7 @@ export default {
         <div class="container">
             <template v-if="projects && !loading">
                 <div class="row row-cols-1 row-cols-sm-3 g-4">
-                    <div class="col" v-for="project in projects">
+                    <div class="col" v-for="project in projects.data">
                         <div class="card border-0 shadow-sm rounded-0 rounded-bottom">
                             <img class="card-image rounded-top" :src="getImagePath(project.cover_image)" alt="">
                             <div class="card-body">

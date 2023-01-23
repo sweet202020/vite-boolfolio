@@ -42,9 +42,10 @@ export default {
                 <div>
                     {{ project.difficulty }}
                 </div>
-                <div>
+                <span v-if="project.type">
                     {{ project.type.name }}
-                </div>
+                </span>
+                <span v-else>Uncategorized</span>
                 <template v-if="project.technologies.length > 0">
                     <span v-for="project in project.technologies">
                         #{{ project.name }}
