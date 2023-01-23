@@ -18,6 +18,8 @@ export default {
                     this.project = response.data.results
                     this.loading = false
 
+                } else {
+                    this.$router.push({ name: 'not-found' })
                 }
 
             }).catch(err => {
@@ -33,8 +35,8 @@ export default {
             <div class="title">
                 {{ project.title }}
             </div>
-            <img :src="this.api_base_url + '/storage/' + project.cover_image" alt="">
-
+            <img v-if="project.cover_image" :src="this.api_base_url + '/storage/' + project.cover_image" alt="">
+            <img v-else src='/img/default.jpg' alt="">
             <div class="description">
                 {{ project.description }}
             </div>
