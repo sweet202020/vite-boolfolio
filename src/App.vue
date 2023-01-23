@@ -1,18 +1,21 @@
 <script>
 
-import NavBar from './components/NavBar.vue'
+
+import NavBarPrimary from './components/NavBarPrimary.vue';
 
 
 export default {
     components: {
-        NavBar
+
+        NavBarPrimary
+
     },
 }
 </script>
 
 <template>
     <header id="site_header">
-        <NavBar></NavBar>
+        <NavBarPrimary></NavBarPrimary>
     </header>
     <!-- /#site_header -->
     <main id="site_main">

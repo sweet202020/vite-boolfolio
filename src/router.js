@@ -4,14 +4,20 @@ import ProjectView from './views/ProjectView.vue'
 import ContactsView from './views/ContactsView.vue'
 import SingleProjectView from './views/SingleProjectView.vue'
 import NotFoundView from './views/NotFoundView.vue'
+import DashboardView from './views/DashboardView.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            path: '/',
+            path: '/home',
             name: 'home',
             component: HomeView
+        },
+        {
+            path: '/',
+            name: 'dashboard',
+            component: DashboardView
         },
         {
             path: '/project',
