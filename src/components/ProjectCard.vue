@@ -1,16 +1,17 @@
 <script>
+import { state } from '../state.js'
 export default {
     name: 'ProjectCard',
     props: { project: Object },
     data() {
         return {
-            base_api_url: 'http://127.0.0.1:8000',
+            state
         }
     }, methods: {
         getImagePath(path) {
             console.log(path);
             if (path) {
-                return this.base_api_url + '/storage/' + path
+                return state.base_api_url + '/storage/' + path
             }
             return '/img/default.jpg'
         },

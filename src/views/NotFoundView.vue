@@ -5,10 +5,14 @@ export default {
 </script>
 <template>
     <div class="banner">
+        <img src="/img/ma_che_dici.jpg" alt="">
         <p>
             page not found error:404
         </p>
-        <router-link to="/">go to home page</router-link>
+        <p>
+            ma che dici?
+        </p>
+        <router-link to="/">go to dashboard</router-link>
     </div>
 </template>
 

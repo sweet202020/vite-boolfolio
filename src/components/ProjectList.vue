@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import { state } from '../state.js'
 import ProjectCard from './ProjectCard.vue'
 export default {
     name: 'ProjectList',
@@ -8,8 +9,8 @@ export default {
     },
     data() {
         return {
+            state,
             projects: null,
-            base_api_url: 'http://127.0.0.1:8000',
             error: null,
             loading: true,
             max: 100,
@@ -43,7 +44,7 @@ export default {
         }
 
     }, mounted() {
-        this.getProjects(this.base_api_url + '/api/projects')
+        this.getProjects(state.base_api_url + '/api/projects')
     }
 } 
 </script>
