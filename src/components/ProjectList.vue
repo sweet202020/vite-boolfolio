@@ -23,8 +23,8 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response.data);
-                    console.log(response.data.results.data);
+                    /* console.log(response.data);
+                    console.log(response.data.results.data); */
                     this.projects = response.data.results;
                     this.loading = false
                 })
@@ -77,7 +77,7 @@ export default {
 
             </template>
             <template v-else-if="loading">
-                loading.....
+                <div class="trigger"></div>
             </template>
             <template v-else>
                 no projects heres
@@ -88,5 +88,94 @@ export default {
 </template>
 
 <style>
+@-webkit-keyframes trigger {
 
+    0%,
+    100% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    30% {
+        -webkit-box-shadow: -30px 30px 0 5px #fff, -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 5px #fff, -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    40% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 5px #fff, 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 5px #fff, 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    50% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 5px #fff, 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 5px #fff, 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    60% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 5px #fff, 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 5px #fff, 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    70% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 5px #fff;
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 5px #fff;
+    }
+
+    80% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes trigger {
+
+    0%,
+    100% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    30% {
+        -webkit-box-shadow: -30px 30px 0 5px #fff, -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 5px #fff, -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    40% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 5px #fff, 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 5px #fff, 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    50% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 5px #fff, 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 5px #fff, 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    60% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 5px #fff, 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 5px #fff, 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    70% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 5px #fff;
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 5px #fff;
+    }
+
+    80% {
+        -webkit-box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+        box-shadow: -30px 30px 0 0 rgba(255, 255, 255, 0.5), -15px 30px 0 0 rgba(255, 255, 255, 0.5), 0 30px 0 0 rgba(255, 255, 255, 0.5), 15px 30px 0 0 rgba(255, 255, 255, 0.5), 30px 30px 0 0 rgba(255, 255, 255, 0.5);
+    }
+}
+
+.trigger:before {
+    -webkit-animation: trigger 1s infinite ease;
+    animation: trigger 1s infinite ease;
+    content: '';
+    height: 20px;
+    left: 50%;
+    margin-left: -5px;
+    margin-top: -40px;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+}
 </style>

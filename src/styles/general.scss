@@ -2,5 +2,21 @@
 @import "/node_modules/bootstrap/scss/bootstrap";
 
 body {
-    background-color: black;
+    font-family: 'Kanit', sans-serif;
+    background-size: cover;
+    background-image: url('/img/wallpaper.png');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    animation: animatedBackground 15s linear infinite alternate;
+
+}
+
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 15%;
+    }
 }
