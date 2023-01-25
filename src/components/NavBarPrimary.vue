@@ -66,7 +66,7 @@ export default {
             </svg>
         </li>
         <li class="d-flex">
-            <router-link class="text-uppercase " :to="{ name: 'home' }">home</router-link>
+            <router-link class="text-uppercase " :to="{ name: 'skills' }">skills</router-link>
             <router-link class="text-uppercase " :to="{ name: 'project' }">project</router-link>
             <router-link class="text-uppercase " :to="{ name: 'contacts' }">contacts</router-link>
         </li>

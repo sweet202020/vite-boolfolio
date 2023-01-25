@@ -8,7 +8,7 @@ export default {
             navbar: false,
             anchors: [
                 {
-                    name: 'home',
+                    name: 'skills',
                     image: false,
 
                 },
