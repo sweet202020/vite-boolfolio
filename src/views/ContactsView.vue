@@ -50,40 +50,53 @@ export default {
 
 <template>
     <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quasi, repellendus dolor accusantium
-            delectus eum! Tempore dolore quidem velit natus fugit nisi laborum. Quos, dicta praesentium sapiente quidem
-            corporis nesciunt rem placeat quis, aperiam vitae ex nobis incidunt quisquam vel reprehenderit illum. Iusto
-            dicta est eos earum tempore. Nostrum, corrupti.</p>
+        <p>if you are looking for a developer for your company or website, fill out the form, watch a TV series and wait
+            for my reply</p>
         <form @submit.prevent="sendForm()">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input v-model='name' type="text" name="name" id="name" class="form-control" placeholder=""
+                <input v-model='name' type="text" name="name" id="name" class="form-control" placeholder="mario rossi"
                     aria-describedby="helpId">
-                <small id="helpId" class="text-muted">Help text</small>
             </div>
             <p v-for="(error) in errors.name">
                 {{ error }}
             </p>
             <div class="mb-3">
-                <label for="email" class="form-label">email</label>
-                <input v-model='email' type="text" name="email" id="email" class="form-control" placeholder=""
-                    aria-describedby="helpId">
-                <small id="helpId" class="text-muted">Help text</small>
+                <label for="email" class="form-label">E-mail</label>
+                <input v-model='email' type="text" name="email" id="email" class="form-control"
+                    placeholder="mario.rossi@gmail.com" aria-describedby="helpId">
             </div>
             <p v-for="(error) in errors.email">
                 {{ error }}
             </p>
             <div class="mb-3">
-                <label for="message" class="form-label">message</label>
-                <textarea v-model="message" class="form-control" name="message" id="message" rows="3"></textarea>
+                <label for="message" class="form-label">Message</label>
+                <textarea placeholder="you are so beatiful, I'm looking for a developer for my website"
+                    v-model="message" class="form-control" name="message" id="message" rows="3"></textarea>
             </div>
             <p v-for="(error) in errors.message">
                 {{ error }}
             </p>
-            <button type="submit" :disable="loading">{{ loading? 'Sending...': 'Contact Me' }}</button>
+            <div class="d-flex">
+
+                <button type="submit" :disable="loading"><span>{{ loading? 'Sending...': 'Contact Me' }}</span></button>
+                <div v-if="success" class="ms-4 mt-2 alert alert-success text-start" role="alert">
+                    Messaggio inviato con successo!
+                </div>
+            </div>
         </form>
-        <div v-if="success" class="alert alert-success text-start" role="alert">
-            Messaggio inviato con successo!
-        </div>
+
     </div>
 </template>
+
+<style lang="scss" scoped>
+p {
+    background-color: #183153;
+    padding: 2rem;
+    color: #ffe22ec9;
+    border: 1 px solid #ffe22ec9;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem;
+    margin-bottom: 2rem;
+}
+</style>

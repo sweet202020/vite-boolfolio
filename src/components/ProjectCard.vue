@@ -5,7 +5,8 @@ export default {
     props: { project: Object },
     data() {
         return {
-            state
+            state,
+            max: 100
         }
     }, methods: {
         getImagePath(path) {
@@ -28,7 +29,7 @@ export default {
 
 <template>
     <div class="col">
-        <div class="card border-0 shadow-sm rounded-0 rounded-bottom">
+        <div class="card ">
             <img class="card-image rounded-top" :src="getImagePath(project.cover_image)" alt="">
             <div class="card-body">
                 <h4>{{ project.title }}</h4>
@@ -38,7 +39,7 @@ export default {
                 <router-link :to="{ name: 'single-project', params: { slug: project.slug } }">Read
                     More</router-link>
             </div>
-            <div div class=" card-footer text-muted">
+            <div class=" card-footer text-muted">
                 <div class="type">
                     <strong>type: </strong>
                     <span v-if="project.type">
@@ -62,3 +63,21 @@ export default {
         </div>
     </div>
 </template>
+
+
+<style lang="scss" scoped>
+.card {
+    background-color: #183153;
+    color: #ffe22ec9;
+    box-shadow: 0.7rem 0.7rem;
+
+
+}
+
+img {
+    margin-top: 2rem;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+</style>

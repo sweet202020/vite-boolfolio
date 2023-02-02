@@ -6,9 +6,9 @@ export default {
 <template>
     <div class="banner">
         <img src="/img/ma_che_dici.jpg" alt="">
-        <p>
+        <div>
             page not found error:404
-        </p>
+        </div>
         <p>
             ma che dici?
         </p>

@@ -13,7 +13,6 @@ export default {
             projects: null,
             error: null,
             loading: true,
-            max: 100,
         }
 
 

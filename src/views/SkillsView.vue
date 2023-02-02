@@ -10,10 +10,10 @@ export default {
 
     <div class="container">
         <div class="row justify-content-around">
-            <div class="col-4">
-                <h1 class="text-center">
-                    My Skills
-                </h1>
+            <div class="col-5">
+                <h2>
+                    about-me
+                </h2>
                 <p>
                     I undertook a crash course to become the best coder.
                     I started with markup languages learning how to make layouts, even responsive ones. I approached
@@ -21,44 +21,42 @@ export default {
                     for the back I interact well with the database through mysql and laravel creating interfaces for the
                     admins
                 </p>
+                <div class="button">
+                    <router-link :to="{ name: 'project' }">
+                        <button><span>view my projects</span></button>
+                    </router-link>
+
+                </div>
             </div>
             <!-- /.col-4 -->
-            <div class="col-8">
-                <p class="ms-3">Front-end</p>
-                <div class="line_default">
-                    <div class="box green"></div>
-                </div>
-                <p class="ms-3">Back-end</p>
-                <div class="line_default">
-                    <div class="box black"></div>
-                </div>
-                <p class="ms-3">Vue.js</p>
-                <div class="line_default">
-                    <div class="box yellow"></div>
-                </div>
-                <p class="ms-3">Laravel</p>
-                <div class="line_default">
-                    <div class="box orange"></div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-6">
-                        <div class="card">
-                            <h2>
-                                Front-End Technology
-                            </h2>
-                        </div>
+            <div class="col-5">
+                <h2>skills</h2>
+                <div class="row row-cols-2 cards text-uppercase text-white">
+                    <div>
+                        html <img src="/img/html.png" alt="">
                     </div>
-                    <!-- /.col-6 -->
-                    <div class="col-6">
-                        <div class="card">
-                            <h2>
-                                Back-End Technology
-                            </h2>
-                        </div>
+                    <div>
+                        css <img src="/img/css.png" alt="">
                     </div>
-                    <!-- /.col-6 -->
+                    <div>
+                        javascript <img src="/img/js.png" alt="">
+                    </div>
+                    <div>php
+                        <img src="/img/php.png" alt="">
+                    </div>
+                    <div>mysql
+                        <img src="/img/mysql.png" alt="">
+                    </div>
+                    <div>vue.js
+                        <img src="/img/vue.png" alt="">
+                    </div>
+                    <div>laravel
+                        <img src="/img/laravel.png" alt="">
+                    </div>
+                    <div>boostrap
+                        <img src="/img/boostrap.png" alt="">
+                    </div>
+
                 </div>
             </div>
             <!-- /.col-8 -->
@@ -73,10 +71,11 @@ export default {
 </template>
 
 <style  lang="scss" scoped>
-h1 {
-    font-size: 60px;
+h2 {
+    font-size: 50px;
     font-family: 'Space Mono', monospace;
     color: white;
+
 }
 
 .col-4 {
@@ -86,96 +85,41 @@ h1 {
 }
 
 p {
+    margin: 2rem 0;
+    text-align: justify;
+    line-height: 3rem;
     color: white;
+    box-shadow: 0.7rem 0.7rem #ffe22ec9;
+
 }
 
-.line_default {
+
+.cards {
+    background-color: #183153;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 2px solid #ffe22ec9;
     margin-bottom: 3rem;
-    margin-left: 2rem;
-    height: 6px;
-    width: 700px;
-    background-color: #ffefef61;
+
+
+
+    div {
+        border: 2px solid #ffe22ec9;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0.2rem 0.2rem #ffe22ec9;
+
+
+    }
+
+
 }
 
-div {
-
-
-
-    .black {
-        background-color: black;
-        position: relative;
-        animation: skills-back 0.5s;
-        animation-fill-mode: both
-    }
-
-    .green {
-        background-color: green;
-        position: relative;
-        animation: skills-front 1s;
-        animation-fill-mode: both
-    }
-
-    .yellow {
-        background-color: #ffe003;
-        position: relative;
-        animation: skills-vue 1.2s;
-        animation-fill-mode: both
-    }
-
-    .orange {
-        background-color: orange;
-        position: relative;
-        animation: skills-laravel 1.5s;
-        animation-fill-mode: both
-    }
-
-    .box {
-        width: 6px;
-        height: 6px;
-    }
-
-    @keyframes skills-front {
-        0% {
-            width: 10px;
-        }
-
-        100% {
-            width: 600px;
-
-        }
-    }
-
-    @keyframes skills-back {
-        0% {
-            width: 10px;
-        }
-
-        100% {
-            width: 550px;
-
-        }
-    }
-
-    @keyframes skills-vue {
-        0% {
-            width: 10px;
-        }
-
-        100% {
-            width: 650px;
-
-        }
-    }
-
-    @keyframes skills-laravel {
-        0% {
-            width: 10px;
-        }
-
-        100% {
-            width: 600px;
-
-        }
-    }
+img {
+    max-width: 100%;
+    margin-bottom: 1rem;
 }
 </style>

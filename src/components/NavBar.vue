@@ -6,6 +6,7 @@ export default {
         return {
             portal: true,
             navbar: false,
+            zoomOut: false,
             anchors: [
                 {
                     name: 'skills',
@@ -29,6 +30,9 @@ export default {
             setTimeout(() => {
                 window.location.assign('http://localhost:5174/' + url);
             }, 4000);
+            setTimeout(() => {
+                this.zoomOut = true
+            }, 2000);
             setTimeout(() => {
                 this.portal = false
 
@@ -112,8 +116,8 @@ export default {
                 <div class="d-flex justify-content-around">
                     <div class="animation">
 
-                        <img v-show="anchors[index].image && portal" class="shuttle  animate__backOutRight"
-                            src="../assets/img/navicelladrink.png" alt="">
+                        <img v-show="anchors[index].image && portal" :class="{ animate__zoomOutRight: zoomOut }"
+                            class="shuttle" src="../assets/img/navicelladrink.png" alt="">
                     </div>
                     <div>
 
@@ -188,21 +192,12 @@ ul {
             transform-origin: bottom left;
         }
 
-        .fuck_it {
-            position: absolute;
-            top: 0;
-            right: 0;
-            animation: fuck-it 2s;
-        }
-
         .portal {
             position: relative;
         }
 
         img {
             width: 250px;
-
-
         }
 
         img.shuttle {
@@ -241,17 +236,6 @@ ul {
     100% {
         left: 100%;
         top: 0;
-    }
-}
-
-@keyframes fuck-it {
-    0% {
-        width: 10px;
-        top: 30%;
-    }
-
-    100% {
-        width: 250px;
     }
 }
 </style>
