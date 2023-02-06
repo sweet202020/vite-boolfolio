@@ -49,21 +49,22 @@ export default {
                 </p>
             </div>
 
-            <div class="details my-5 d-flex justify-content-between">
-                <div>
+            <div class="details my-5 row row-cols-1 row-cols-md-3">
+                <div class="col">
                     <span class="text-uppercase">
                         project's difficulty:
                     </span>
                     {{ project.difficulty }}
+
                 </div>
-                <div v-if="project.type">
+                <div class="col" v-if="project.type">
                     <span class="text-uppercase">
                         project's type:
                     </span>
                     {{ project.type.name }}
                 </div>
-                <div v-else>Uncategorized</div>
-                <template v-if="project.technologies.length > 0">
+                <div class="col" v-else>Uncategorized</div>
+                <template class="col" v-if="project.technologies.length > 0">
                     <span class="text-uppercase d-flex">
                         project's technologies:
                         <div class="text-white ms-3" v-for="project in project.technologies">
@@ -72,14 +73,17 @@ export default {
                         </div>
                     </span>
                 </template>
-                <div v-else>
+                <div class="col" v-else>
                     no technologies
                 </div>
             </div>
             <div class="link my-3 d-flex justify-content-around">
+                <router-link :to="{ name: 'project' }"><button><span><img width="30" src="/img/button.svg"
+                                alt=""></span></button></router-link>
                 <a :href="project.site_link"><button><span class="text-uppercase">click here for my
                             code</span></button></a>
-                <router-link :to="{ name: 'contacts' }"><button><span>contact me!</span></button></router-link>
+                <router-link :to="{ name: 'contacts' }"><button><span class="text-uppercase">contact
+                            me!</span></button></router-link>
             </div>
         </div>
     </div>

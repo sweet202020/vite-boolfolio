@@ -1,49 +1,12 @@
 <script>
 import 'animate.css';
+import { state } from '../state.js'
 export default {
     name: 'NavBar',
     data() {
         return {
-            portal: true,
-            navbar: false,
-            zoomOut: false,
-            anchors: [
-                {
-                    name: 'skills',
-                    image: false,
-
-                },
-                {
-                    name: 'project',
-                    image: false,
-
-                },
-                {
-                    name: 'contacts',
-                    image: false,
-
-                }
-            ]
+            state
         }
-    }, methods: {
-        delayAnchor(url, index) {
-            setTimeout(() => {
-                window.location.assign('http://localhost:5174/' + url);
-            }, 4000);
-            setTimeout(() => {
-                this.zoomOut = true
-            }, 2000);
-            setTimeout(() => {
-                this.portal = false
-
-            }, 2900);
-            /* console.log(this.anchors[index].image); */
-            this.anchors[index].image = true
-        },
-        displayLogo() {
-            this.navbar = true
-        }
-
     }
 }
 </script>
@@ -52,7 +15,7 @@ export default {
 
     <!-- Nav tabs -->
     <ul class="nav flex-column" id="navId" role="tablist">
-        <li class="logo" v-if="!navbar" @click="displayLogo()">
+        <li class="logo" v-if="!state.navbar" @click="state.displayLogo()">
             <svg data-v-2cb57da0="" version="1.0" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%"
                 viewBox="0 0 340.000000 250.000000" preserveAspectRatio="xMidYMid meet"
@@ -111,25 +74,25 @@ export default {
                 <defs v-gra="od"></defs>
             </svg>
         </li>
-        <li class="nav-item" v-if="navbar" v-for="(anchor, index) in anchors">
+        <li class="nav-item" v-if="state.navbar" v-for="(anchor, index) in state.anchors">
             <div class="container">
                 <div class="d-flex justify-content-around">
                     <div class="animation">
 
-                        <img v-show="anchors[index].image && portal" :class="{ animate__zoomOutRight: zoomOut }"
-                            class="shuttle" src="../assets/img/navicelladrink.png" alt="">
+                        <img v-show="state.anchors[index].image && state.portal"
+                            :class="{ animate__zoomOutRight: state.zoomOut }" class="shuttle"
+                            src="../assets/img/navicelladrink.png" alt="">
                     </div>
                     <div>
 
-                        <div class="text-uppercase anchor anchor-animation" @click="delayAnchor(anchor.name, index)">{{
-                            anchor.name
-                        }}</div>
+                        <div class="text-uppercase anchor anchor-animation"
+                            @click="state.delayAnchor(anchor.name, index)">{{
+                                anchor.name
+                            }}</div>
                     </div>
                     <div class="portal">
-                        <img class="animate__bounceOut" v-show="anchors[index].image" src="../assets/img/portale.png"
-                            alt="">
-                        <!-- <img class="fuck_it" v-show="anchors[index].image && !portal" src="../assets/img/fuckit.png"
-                            alt=""> -->
+                        <img class="animate__bounceOut" v-show="state.anchors[index].image"
+                            src="../assets/img/portale.png" alt="">
                     </div>
                 </div>
             </div>
@@ -157,6 +120,8 @@ ul {
             cursor: pointer;
         }
     }
+
+
 
     li:not(.logo) {
         width: 100%;
@@ -197,16 +162,16 @@ ul {
         }
 
         img {
-            width: 250px;
+            width: 500px;
         }
 
         img.shuttle {
             position: relative;
-            animation: shuttle 3s ease-in;
+            animation: shuttle 4s ease-in;
         }
 
         .animate__bounceOut {
-            animation-delay: 3.2s;
+            animation-delay: 3.8s;
         }
 
         div {
@@ -234,7 +199,7 @@ ul {
 
 
     100% {
-        left: 100%;
+        left: 120%;
         top: 0;
     }
 }
