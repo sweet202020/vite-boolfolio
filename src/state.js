@@ -23,7 +23,7 @@ export const state = reactive({
     ],
     delayAnchor(url, index) {
         setTimeout(() => {
-            window.location.assign('http://localhost:5173/' + url);
+            window.location.assign('http://localhost:5174/' + url);
         }, 4500);
         setTimeout(() => {
             this.zoomOut = true
